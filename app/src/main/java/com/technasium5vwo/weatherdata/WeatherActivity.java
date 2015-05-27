@@ -38,7 +38,9 @@ public class WeatherActivity extends ActionBarActivity {
     }
 
     private void addDrawerItems() {
-        String[] osArray = { "Android", "iOS", "Windows", "OS X", "Linux" };
+        String[] osArray = { "Android", "iOS", "Windows", "OS X", "Linux", "datepicker" };
+        String[] Menuitem = {"datepicker"};
+        mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Menuitem);
         mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, osArray);
         mDrawerList.setAdapter(mAdapter);
 
