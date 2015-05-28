@@ -17,6 +17,7 @@ import android.widget.ListView;
 public class MainActivity extends ActionBarActivity {
 
     private ListView mDrawerList;
+    private ListView mDrawerList2;
     private DrawerLayout mDrawerLayout;
     private ActionBarDrawerToggle mDrawerToggle;
     private String mActivityTitle;
@@ -26,7 +27,9 @@ public class MainActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mDrawerList = (ListView)findViewById(R.id.navList);mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
+        mDrawerList = (ListView)findViewById(R.id.navList);
+        mDrawerList2 = (ListView)findViewById(R.id.navList2);
+        mDrawerLayout = (DrawerLayout)findViewById(R.id.drawer_layout);
         mActivityTitle = getTitle().toString();
 
         addDrawerItems();
@@ -39,12 +42,23 @@ public class MainActivity extends ActionBarActivity {
     private void addDrawerItems() {
 
         String[] Menuitem = {"datepicker"};
+        String[] Menuitem2 = {"Huidig weer"};
+        ArrayAdapter<String> mAdapter2 = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Menuitem2);
         ArrayAdapter<String> mAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, Menuitem);
+
         mDrawerList.setAdapter(mAdapter);
+        mDrawerList2.setAdapter(mAdapter2);
+
         mDrawerList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                startActivity(new Intent(MainActivity.this, WeatherActivity.class)); //hier class van
+                startActivity(new Intent(MainActivity.this, WeatherActivity.class));
+            }
+        });
+        mDrawerList2.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                startActivity(new Intent(MainActivity.this, WeatherActivity.class));
             }
         });
     }

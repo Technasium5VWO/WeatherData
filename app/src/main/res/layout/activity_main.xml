@@ -22,7 +22,16 @@
         android:layout_width="200dp"
         android:layout_height="match_parent"
         android:layout_gravity="left|start"
-        android:background="#990099cc"/>
+        android:background="#990099cc"
+        android:dividerHeight="14.5sp"/>
+
+    <ListView
+        android:id="@+id/navList2"
+        android:layout_width="200dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="left|start"
+        android:background="#990099cc"
+        android:dividerHeight="14.5sp"/>
 
 
 </android.support.v4.widget.DrawerLayout>
